@@ -104,6 +104,10 @@ export async function GET(req) {
  * 
  */
 
+//////////********************************************************************* *////////////
+//////////********************************************************************* *////////////
+//////////********************************************************************* *////////////
+
 // // // Addition of products in the products array;
 export async function POST(request) {
   const postingData = await request.json();
@@ -213,3 +217,45 @@ export async function POST(request) {
  * 
  * 
  */
+
+//////////********************************************************************* *////////////
+//////////********************************************************************* *////////////
+//////////********************************************************************* *////////////
+
+// // // Updation or Edition in the product/item in the products array;
+export async function PUT(request) {
+  const { searchParams } = request.nextUrl;
+
+  const id = searchParams.get("id");
+
+  const updatedProduct = await request.json();
+
+  return NextResponse.json({
+    message: "id & updated the product body",
+    id: id,
+    updatedProduct,
+  });
+}
+// // // Step:-1) Select the PUT then,
+// // // Enter the url (http://localhost:3000/api/products?id=3) on POSTMAN or Thunder Client
+// // // Hit the send button.
+// // // We will get the Status: 200 OK     Size: 149 Bytes     Time: 33 ms
+/**
+ * {
+  "message": "id & updated the product body",
+  "id": "3",
+  "updatedProduct": {
+    "id": 7,
+    "title": "BlackBerry",
+    "price": 7860,
+    "category": "Phones",
+    "userRating": 9.8
+  }
+}
+ * 
+ * 
+ */
+
+//////////********************************************************************* *////////////
+//////////********************************************************************* *////////////
+//////////********************************************************************* *////////////
