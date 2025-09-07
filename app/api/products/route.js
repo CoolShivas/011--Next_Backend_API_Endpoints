@@ -332,3 +332,83 @@ export async function PUT(request) {
 //////////********************************************************************* *////////////
 //////////********************************************************************* *////////////
 //////////********************************************************************* *////////////
+
+// // // Deletion or removal of the product/item from the products array;
+
+export async function DELETE(request) {
+  const { searchParams } = request.nextUrl;
+
+  const id = searchParams.get("id");
+
+  products = products.filter((cur) => {
+    return cur.id !== parseInt(id);
+  });
+
+  return NextResponse.json({
+    message: "Deleted the product item successfully...!",
+    success: true,
+    products,
+  });
+}
+// // // Step:-1) Select the DELETE then,
+// // // Enter the url (http://localhost:3000/api/products?id=1) on POSTMAN or Thunder Client
+// // // Hit the send button you will get the result as :-
+// // // We will get the Status: 200 OK     Size: 149 Bytes     Time: 33 ms
+/**
+ * {
+  "message": "Deleted the product item successfully...!",
+  "success": true,
+  "products": [
+     {
+      "id": 2,
+      "title": "iPhone 16 Pro",
+      "price": 2099,
+      "category": "Phones",
+      "userRating": 4.5
+    },
+    {
+      "id": 3,
+      "title": "BerryHoney",
+      "price": 10000,
+      "category": "Phones",
+      "userRating": 5.8
+    },
+    {
+      "id": 4,
+      "title": "Canon EOS R5",
+      "price": 3499,
+      "category": "Cameras",
+      "userRating": 4.8
+    },
+    {
+      "id": 5,
+      "title": "AirPods Pro 2",
+      "price": 249,
+      "category": "Earbuds",
+      "userRating": 4.7
+    },
+    {
+      "id": 6,
+      "title": "Life Good",
+      "price": 5001,
+      "category": "Television",
+      "userRating": 9.8
+    },
+    {
+      "id": 7,
+      "title": "BlackBerry",
+      "price": 10089,
+      "category": "Phones",
+      "userRating": 7.8
+    },
+    {
+      "id": 8,
+      "title": "lavaMicroMax",
+      "price": 50012,
+      "category": "Phones",
+      "userRating": 7.8
+    }
+  ]
+}
+ * 
+ */
