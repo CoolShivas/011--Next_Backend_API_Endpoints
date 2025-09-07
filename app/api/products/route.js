@@ -230,27 +230,100 @@ export async function PUT(request) {
 
   const updatedProduct = await request.json();
 
+  for (let i = 0; i < products.length; i++) {
+    if (products[i].id === parseInt(id)) {
+      products[i].title = updatedProduct.title;
+      products[i].price = updatedProduct.price;
+      products[i].category = updatedProduct.category;
+      products[i].userRating = updatedProduct.userRating;
+    }
+  }
+
   return NextResponse.json({
-    message: "id & updated the product body",
-    id: id,
-    updatedProduct,
+    message: "Your product details are updated successfully...!",
+    success: true,
+    products,
   });
 }
 // // // Step:-1) Select the PUT then,
-// // // Enter the url (http://localhost:3000/api/products?id=3) on POSTMAN or Thunder Client
-// // // Hit the send button.
+// // // Enter the url (http://localhost:3000/api/products?id=6) on POSTMAN or Thunder Client
+// // // Select the body and enter the data such as  { id: 6, title: "LG OLED C2", price: 1599, category: "TVs", userRating: 4.9 },
+// // // Then do the correction or updation such as
+/**
+ * {
+      "id": 6,
+      "title": "Life Good",
+      "price": 5001,
+      "category": "Television",
+      "userRating": 9.8
+    }
+ * 
+ * 
+ */
 // // // We will get the Status: 200 OK     Size: 149 Bytes     Time: 33 ms
 /**
  * {
-  "message": "id & updated the product body",
-  "id": "3",
-  "updatedProduct": {
-    "id": 7,
-    "title": "BlackBerry",
-    "price": 7860,
-    "category": "Phones",
-    "userRating": 9.8
-  }
+  {
+  "message": "Your product details are updated successfully...!",
+  "success": true,
+  "products": [
+    {
+      "id": 1,
+      "title": "iPhone 15 Pro",
+      "price": 999,
+      "category": "Phones",
+      "userRating": 4.8
+    },
+    {
+      "id": 2,
+      "title": "iPhone 16 Pro",
+      "price": 2099,
+      "category": "Phones",
+      "userRating": 4.5
+    },
+    {
+      "id": 3,
+      "title": "BerryHoney",
+      "price": 10000,
+      "category": "Phones",
+      "userRating": 5.8
+    },
+    {
+      "id": 4,
+      "title": "Canon EOS R5",
+      "price": 3499,
+      "category": "Cameras",
+      "userRating": 4.8
+    },
+    {
+      "id": 5,
+      "title": "AirPods Pro 2",
+      "price": 249,
+      "category": "Earbuds",
+      "userRating": 4.7
+    },
+    {
+      "id": 6,
+      "title": "Life Good",
+      "price": 5001,
+      "category": "Television",
+      "userRating": 9.8
+    },
+    {
+      "id": 7,
+      "title": "BlackBerry",
+      "price": 10089,
+      "category": "Phones",
+      "userRating": 7.8
+    },
+    {
+      "id": 8,
+      "title": "lavaMicroMax",
+      "price": 50012,
+      "category": "Phones",
+      "userRating": 7.8
+    }
+  ]
 }
  * 
  * 
