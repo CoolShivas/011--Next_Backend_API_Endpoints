@@ -45,7 +45,7 @@ export async function GET(request) {
   const price = searchParams.get("price");
   const searchSpecificProduct = products.filter((currElem) => {
     return (
-      currElem.title.toLowerCase().includes(query.toLowerCase()) &&
+      currElem.title.toLowerCase().includes(query.toLowerCase()) ||
       currElem.price === Number(price) // Number(price) is used for strict equality operator used;
     );
   });
