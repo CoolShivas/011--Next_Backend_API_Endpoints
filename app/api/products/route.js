@@ -103,3 +103,44 @@ export async function GET(req) {
  * 
  * 
  */
+
+// // // Addition of products in the products array;
+export async function POST(request) {
+  const postingData = await request.json();
+
+  return NextResponse.json({
+    message: "Getting data from body",
+    success: true,
+    bodyData: postingData,
+  });
+}
+// // // First, select the POST instead of GET then,
+// // // Enter the url (http://localhost:3000/api/products) on POSTMAN or Thunder Client
+// // // Then select the Body then JSON and Write on JSON Content format as:-
+/**
+ *   {
+      "id": 7,
+      "title": "BlackBerry",
+      "price": 7860,
+      "category": "Phones",
+      "userRating": 9.8
+    }
+ */
+// // // Then hit the send button of POSTMAN or Thunder Client.
+// // // We will get the Status: 200 OK     Size: 142 Bytes     Time: 26 ms
+// // // Getting the response as :-
+/**
+ * {
+  "message": "Getting data from body",
+  "success": true,
+  "bodyData": {
+    "id": 7,
+    "title": "BlackBerry",
+    "price": 7860,
+    "category": "Phones",
+    "userRating": 9.8
+  }
+}
+ * 
+ * 
+ */
